@@ -1,0 +1,31 @@
+{
+  "name": "nodejs-tcp-server-for-godot",
+  "version": "1.0.0",
+  "description": "Simple TCP Server made by Node.js for work with Godot Engine",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon --exec node --signal SIGINT -r ts-node/register src/index.ts",
+    "debug": "nodemon --exec node --signal SIGINT --inspect-brk=9339 -r ts-node/register src/index.ts",
+    "start": "node -r ts-node/register/transpile-only src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rico345100/nodejs-tcp-server-for-godot"
+  },
+  "author": ".modernator",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.6"
+  },
+  "dependencies": {
+    "@types/node": "^13.5.0",
+    "nodemon": "^2.0.2",
+    "ts-node": "^8.6.2",
+    "typescript": "^3.7.5"
+  },
+  "engines": {
+    "node": "12.x"
+  }
+}

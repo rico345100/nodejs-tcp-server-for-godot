@@ -1,0 +1,33 @@
+{
+	"compilerOptions": {
+	  "target": "es2017",
+	  "module": "commonjs",
+	  "allowJs": false,
+	  "emitDecoratorMetadata": true,
+	  "experimentalDecorators": true,
+	  "allowSyntheticDefaultImports": true,
+	  "moduleResolution": "node",
+	  "skipLibCheck": true,
+	  "strictNullChecks": true,
+	  "sourceMap": true,
+	  "baseUrl": "src",
+	  "sourceRoot": "src",
+	  "outDir": "build",
+	  "typeRoots": [
+		"./src/typings",
+		"./node_modules/@types"
+	  ],
+	  "paths": {
+		"*": [
+		  "*"
+		]
+	  }
+	},
+	"include": [
+	  "src/**/*.ts"
+	],
+	"exclude": [
+	  "node_modules",
+	  "build"
+	]
+  }

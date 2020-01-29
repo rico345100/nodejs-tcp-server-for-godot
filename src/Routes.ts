@@ -90,7 +90,6 @@ export function parseInstantiate(socket: GodotSocket, data: Buffer) {
 	const localID: number = byteReader.readInt();
 	const instanceType: InstanceType = byteReader.readByte();
 	const position: Vector3 = byteReader.readVector3();
-	const rotation: Vector3 = byteReader.readVector3();
 
 	if (instanceType === InstanceType.Player) {
 		console.log('Instantiating Player...');
@@ -117,10 +116,8 @@ export function parseSyncTransform(socket: GodotSocket, data: Buffer) {
     
     const localID = byteReader.readInt();
     const position = byteReader.readVector3();
-    const rotation = byteReader.readVector3();
     const positionStr = `Vector3 (x: ${position.x}, y: ${position.y}, z: ${position.z})`;
-    const rotationStr = `Vector3 (x: ${rotation.x}, y: ${rotation.y}, z: ${rotation.z})`;
-    console.log(`Sync Transform\nLocalID: ${localID}\nPosition: ${positionStr}\nRotation: ${rotationStr}`);
+    console.log(`Sync Transform\nLocalID: ${localID}\nPosition: ${positionStr}`);
 
     SocketManager.broadcast(data, socket);
 }

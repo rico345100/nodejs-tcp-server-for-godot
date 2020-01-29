@@ -14,12 +14,12 @@ import { byteSize, intSize, vector3Size } from './typeSize';
  * @param {GodotSocket} socket
  */
 export function sendClientID(socket: GodotSocket) {
-	const buffer: Buffer = Buffer.allocUnsafe(byteSize + intSize);
-	const byteWriter: ByteWriter = new ByteWriter(buffer);
+	const sendingBytes: Buffer = Buffer.allocUnsafe(byteSize + intSize);
+	const byteWriter: ByteWriter = new ByteWriter(sendingBytes);
 	byteWriter.writeByte(MessageType.AssignID);
 	byteWriter.writeInt(socket.clientID);
 
-	socket.write(buffer);
+	socket.write(sendingBytes);
 }
 
 /**
@@ -55,7 +55,8 @@ export function syncNetworkObjects(socket: GodotSocket) {
 		byteWriter.writeVector3(gInstance.position);
 
 		socket.syncCount++;
-		console.log(`Send Request to Instantiate Object ${socket.syncCount} / ${totalCount}`);
+		console.log(`Send Request to Instantiate Object CID ${gInstance.clientID} LID ${gInstance.localID}`);
+		console.log(`Sync Progress ${socket.syncCount} / ${totalCount}`)		
 	}
 
 	socket.write(sendingBytes);

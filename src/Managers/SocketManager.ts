@@ -35,7 +35,6 @@ class SocketManager {
 	static broadcast(message: Buffer, senderSocket: GodotSocket) {
 		this.sockets.forEach(function(socket) {
 			if(socket == senderSocket) return;
-	
 			socket.write(message);
 		});
 	}

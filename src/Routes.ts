@@ -53,7 +53,6 @@ export function syncNetworkObjects(socket: GodotSocket) {
 		byteWriter.writeInt(gInstance.localID);
 		byteWriter.writeByte(gInstance.instanceType);
 		byteWriter.writeVector3(gInstance.position);
-		byteWriter.writeVector3(gInstance.rotation);
 
 		socket.syncCount++;
 		console.log(`Send Request to Instantiate Object ${socket.syncCount} / ${totalCount}`);
@@ -97,7 +96,7 @@ export function parseInstantiate(socket: GodotSocket, data: Buffer) {
 		console.log('Instantiating Player...');
 	}
 
-	const instance = new GodotInstance(instanceType, clientID, localID, position, rotation);
+	const instance = new GodotInstance(instanceType, clientID, localID, position);
 	console.log('Saving Instance...');
 	console.log(instance);
 

@@ -6,14 +6,12 @@ class GodotInstance {
 	clientID: number;
 	localID: number;
 	position: Vector3;
-	rotation: Vector3;
 
-    constructor(instanceType, clientID, localID, position, rotation) {
+    constructor(instanceType, clientID, localID, position) {
         this.instanceType = instanceType;
         this.clientID = clientID;
         this.localID = localID;
         this.position = position;
-        this.rotation = rotation;
     }
 }
 

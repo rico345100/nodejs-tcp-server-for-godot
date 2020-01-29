@@ -110,14 +110,14 @@ export function parseInstantiate(socket: GodotSocket, data: Buffer) {
  */
 export function parseSyncTransform(socket: GodotSocket, data: Buffer) {
 	// Just uncomment above lines if you want to see the data between sockets
-    const byteReader = new ByteReader(data);
-    byteReader.readByte(); // consume message type
-    byteReader.readInt(); // consume client id
-    
-    const localID = byteReader.readInt();
-    const position = byteReader.readVector3();
-    const positionStr = `Vector3 (x: ${position.x}, y: ${position.y}, z: ${position.z})`;
-    console.log(`Sync Transform\nLocalID: ${localID}\nPosition: ${positionStr}`);
+    // const byteReader = new ByteReader(data);
+	// byteReader.readByte(); // Consume MessageType
+	
+    // const clientID = byteReader.readInt();
+    // const localID = byteReader.readInt();
+    // const position = byteReader.readVector3();
+    // const positionStr = `Vector3 (x: ${position.x}, y: ${position.y}, z: ${position.z})`;
+    // console.log(`Sync Transform\nClientID: ${clientID}\nLocalID: ${localID}\nPosition: ${positionStr}`);
 
     SocketManager.broadcast(data, socket);
 }
